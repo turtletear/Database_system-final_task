@@ -94,9 +94,13 @@ public class query {
             chk2[0] = chk[0];
             tableParse t2 = new tableParse(chk2);
             table x = t2.getOneTable();
-            x.showCoulmn();
+            oneTable(x);
+            
             
             //sambung sini
+            
+            
+            
             
 //            for (int k = 0; k < chk.length; k++) {
 //                System.out.println("ini = "+chk[k]);
