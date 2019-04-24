@@ -96,7 +96,7 @@ public class query {
             table x = t2.getOneTable();
             oneTable(x);
             
-            
+            oneTableQEP(x, chk[2]);
             //sambung sini
             
             
@@ -153,8 +153,30 @@ public class query {
             System.out.println("column not found !");
     }//close method
     
-    public void oneTableQEP(){
+    public void oneTableQEP(table t, String select){
+        String[] parse = parseToken1(tokens[1]);
+        int count_fnd = 0;
+        for (int i = 0; i < parse.length; i++) {
+            if (t.cekCoulmn(parse[i])) {
+                count_fnd++;
+            }
+        }        
+        if (count_fnd != 0) {
+            QEP q1 = new QEP();
+            q1.setTbl_name(t.getName());
+            q1.setSelection(select);
+            for (int i = 0; i < parse.length; i++) {
+                if (t.cekCoulmn(parse[i])) {
+                    q1.addProjection(parse[i]);
+                }
+            }
+            System.out.println("--------------");
+            q1.QEPshow();
+            
+        }
         
+        else
+            System.out.println("column not found !");
         
         
     }//close method
