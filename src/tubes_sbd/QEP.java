@@ -10,5 +10,17 @@ package tubes_sbd;
  * @author ariq
  */
 public class QEP {
+    private String selection;
+    private String projection;
+    private String tbl_name;
+    private String join;
+    private double cost;
+
+    public QEP() {
+        
+    
+    }
+    
+    
     
 }
