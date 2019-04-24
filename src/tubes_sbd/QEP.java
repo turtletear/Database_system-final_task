@@ -16,6 +16,7 @@ public class QEP {
     private String selction_sprt;
     private ArrayList<String> projection = new ArrayList();
     private String tbl_name;
+    private String query;
     //private String join;
     private double cost;
     private values v1; //table2 yang ada bfr dkk
@@ -44,16 +45,23 @@ public class QEP {
     public void QEPshow(){
         System.out.print("Projection ");
         showProjection(); System.out.println(" -- on the fly");
-        System.out.println("iniiii " + this.selction_sprt);
         System.out.print("Selection " + selection); selectFormula(this.selction_sprt);
         System.out.println(tbl_name);
         System.out.println("Cost : "+cost);
     }
     
+    public void saveQEP(){
+        
+    
+    }
+    
     public void addProjection(String x){
         projection.add(x);
     }
-    
+
+    public void setQuery(String query) {
+        this.query = query;
+    }
     
     
     public void selectFormula(String x){

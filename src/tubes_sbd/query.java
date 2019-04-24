@@ -89,7 +89,6 @@ public class query {
         
         //tambah where disini
         else if(chk.length == 3){
-            System.out.println("masuk where");
             String[] chk2 = new String[1];
             chk2[0] = chk[0];
             tableParse t2 = new tableParse(chk2);
@@ -170,9 +169,9 @@ public class query {
                 }
             }
             q1.setT(t);
+            q1.setQuery(input);
             System.out.println("--------------");
-            q1.QEPshow();
-            
+            q1.QEPshow(); 
         }
         
         else
