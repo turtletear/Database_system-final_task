@@ -170,8 +170,10 @@ public class query {
             }
             q1.setT(t);
             q1.setQuery(input);
+            q1.mergeProjection();
             System.out.println("--------------");
             q1.QEPshow(); 
+            q1.saveQEP();//cek optimal dulu sebelum save
         }
         
         else

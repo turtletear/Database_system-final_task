@@ -5,7 +5,9 @@
  */
 package tubes_sbd;
 
+import java.io.FileWriter;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,6 +17,7 @@ public class QEP {
     private String selection;
     private String selction_sprt;
     private ArrayList<String> projection = new ArrayList();
+    private String prj="";
     private String tbl_name;
     private String query;
     //private String join;
@@ -36,22 +39,31 @@ public class QEP {
         this.t = t;
     }
     
-    public void showProjection(){
+    public void mergeProjection(){
         for (String x : projection) {
-            System.out.print(x+" ");
+            prj+=x+",";
         }
     }
     
     public void QEPshow(){
         System.out.print("Projection ");
-        showProjection(); System.out.println(" -- on the fly");
+        System.out.println(this.prj+" -- on the fly");
         System.out.print("Selection " + selection); selectFormula(this.selction_sprt);
         System.out.println(tbl_name);
         System.out.println("Cost : "+cost);
     }
     
     public void saveQEP(){
-        
+        try {
+            FileWriter f = new FileWriter ("shared_pool.txt",true);
+            f.write(">>Query : "+query+"@"+">> Projection "+prj+" -- on the fly"+"@"+">>Selection "
+            +selection+selectFormulaSave(this.selction_sprt)+"@"+tbl_name+"#");
+            f.write(System.getProperty("line.separator"));
+            
+            f.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     
     }
     
@@ -70,6 +82,14 @@ public class QEP {
         }
         else
             A2();
+    }
+    
+    public String selectFormulaSave(String x){
+        if (t.cekPK(x)) {
+            return (" -- A1 key");
+        }
+        else
+           return (" -- A3");
     }
     
     public void A1key(){
