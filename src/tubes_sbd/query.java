@@ -162,14 +162,14 @@ public class query {
             }
         }        
         if (count_fnd != 0) {
-            QEP q1 = new QEP();
-            q1.setTbl_name(t.getName());
-            q1.setSelection(select);
+            QEP q1 = new QEP(t.getName(),select);
+            
             for (int i = 0; i < parse.length; i++) {
                 if (t.cekCoulmn(parse[i])) {
                     q1.addProjection(parse[i]);
                 }
             }
+            q1.setT(t);
             System.out.println("--------------");
             q1.QEPshow();
             

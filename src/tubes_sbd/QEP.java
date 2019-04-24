@@ -13,25 +13,26 @@ import java.util.ArrayList;
  */
 public class QEP {
     private String selection;
+    private String selction_sprt;
     private ArrayList<String> projection = new ArrayList();
     private String tbl_name;
     //private String join;
     private double cost;
     private values v1; //table2 yang ada bfr dkk
-    
+    private table t;
 
-    public QEP() {
+    public QEP(String tbl_name, String selection) {
         
         v1 = new values();
-    
-    }
-
-    public void setSelection(String selection) {
-        this.selection = selection;
-    }
-
-    public void setTbl_name(String tbl_name) {
         this.tbl_name = tbl_name;
+        this.selection = selection;
+        String[] x = new String[2];
+        x = selection.split("=");
+        this.selction_sprt = x[0];
+    }
+
+    public void setT(table t) {
+        this.t = t;
     }
     
     public void showProjection(){
@@ -43,7 +44,8 @@ public class QEP {
     public void QEPshow(){
         System.out.print("Projection ");
         showProjection(); System.out.println(" -- on the fly");
-        System.out.println("Selection " + selection + " A1/A2");
+        System.out.println("iniiii " + this.selction_sprt);
+        System.out.print("Selection " + selection); selectFormula(this.selction_sprt);
         System.out.println(tbl_name);
         System.out.println("Cost : "+cost);
     }
@@ -51,5 +53,24 @@ public class QEP {
     public void addProjection(String x){
         projection.add(x);
     }
+    
+    
+    
+    public void selectFormula(String x){
+        if (t.cekPK(x)) {
+            A1key();
+        }
+        else
+            A2();
+    }
+    
+    public void A1key(){
+        System.out.println(" -- A1 key");
+    }
+    
+    public void A2(){
+        System.out.println(" -- A2");
+    }
+    
     
 }

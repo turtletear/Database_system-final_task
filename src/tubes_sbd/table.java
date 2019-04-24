@@ -29,7 +29,12 @@ public class table {
         this.alias = alias;
     }
     
-    
+    public boolean cekPK(String x){
+        if (x.equals(coulmns.get(0))) {
+            return true;
+        }
+        return false;
+    }
     
     public void addCoulmn(String x){
         coulmns.add(x);
