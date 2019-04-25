@@ -182,11 +182,14 @@ public class query {
                     count_true++;
                 }    
             }// mencek keberadaan key yang sama antar '=', kalau 2 benar
-
+            
+            QEP2 q = new QEP2();
+            
             if (count_true == 2) {
                 String[] parse = parseToken1(tokens[1]);
                 for (table z : t) {
                     System.out.println("Table       : " + z.getName());
+                    q.addTbl_name(z.getName());
                     System.out.println("Column List : ");
                         for (int i = 0; i < parse.length; i++) {
                             String g = String.valueOf(parse[i].charAt(1));
@@ -202,6 +205,8 @@ public class query {
                     }//buat array untuk table name
                         
                 }
+                q.setProjection(tokens[1]);
+                // sambung sini
                 
             }//close if
         

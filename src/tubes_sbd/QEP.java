@@ -44,7 +44,7 @@ public class QEP {
         }
     }
     
-    public void QEPshow(){
+    public void QEPshow(){ //kasih parameter untuk A1/A2
         System.out.print("Projection ");
         System.out.println(this.prj+" -- on the fly");
         System.out.print("Selection " + selection); selectFormula(this.selction_sprt);
@@ -52,7 +52,7 @@ public class QEP {
         System.out.println("Cost : "+cost);
     }
     
-    public void saveQEP(){
+    public void saveQEP(){ //kasih parameter untuk A1/A2
         try {
             FileWriter f = new FileWriter ("shared_pool.txt",true);
             f.write(">>Query : "+query+"@"+">> Projection "+prj+" -- on the fly"+"@"+">>Selection "
