@@ -86,8 +86,6 @@ public class query {
             table x = t1.getOneTable();
             oneTable(x); //menampilkan 1 tabel setelah parsing
         }
-        
-        //tambah where disini
         else if(chk.length == 3){
             String[] chk2 = new String[1];
             chk2[0] = chk[0];
@@ -96,14 +94,6 @@ public class query {
             oneTable(x);
             
             oneTableQEP(x, chk[2]);
-            //sambung sini
-            
-            
-            
-            
-//            for (int k = 0; k < chk.length; k++) {
-//                System.out.println("ini = "+chk[k]);
-//            }
         }
         
         else{
@@ -173,7 +163,7 @@ public class query {
             q1.mergeProjection();
             System.out.println("--------------");
             q1.QEPshow(); 
-            q1.saveQEP();//cek optimal dulu sebelum save
+            //q1.saveQEP();//cek optimal dulu sebelum save
         }
         
         else
@@ -184,6 +174,7 @@ public class query {
     
     public void manyTable(ArrayList<table> t , String x){
         String[] tm = x.split("=");
+        
         int count_true = 0;
         if (kurang2(tm[0]).equals(kurang2(tm[1]))) { //ngecek (b.blabla = b.blabla) sama
             for (table z : t) {
@@ -208,7 +199,7 @@ public class query {
                         if (z.cekCoulmn(parse[i])) {
                             System.out.println(parse[i]);
                         }
-                    }
+                    }//buat array untuk table name
                         
                 }
                 

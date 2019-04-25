@@ -1,0 +1,3 @@
+>>Query : select idpel,nama from pelanggan where idpel=1;@>> Projection idpel,nama, -- on the fly@>>Selection idpel=1 -- A1 key@pelanggan#
+>>Query : select nama from pelanggan where idpel=1;@>> Projection nama, -- on the fly@>>Selection idpel=1 -- A1 key@pelanggan#
+>>Query : select idpel,nama from pelanggan where nama='ahmad';@>> Projection idpel,nama, -- on the fly@>>Selection nama='ahmad' -- A3@pelanggan#

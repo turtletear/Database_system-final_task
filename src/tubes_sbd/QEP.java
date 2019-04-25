@@ -20,7 +20,6 @@ public class QEP {
     private String prj="";
     private String tbl_name;
     private String query;
-    //private String join;
     private double cost;
     private values v1; //table2 yang ada bfr dkk
     private table t;
