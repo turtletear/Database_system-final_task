@@ -52,7 +52,7 @@ public class table_detail {
     }
     
     public void setCB(){
-        this.cb = this.n / this.bfr;
+        this.cb = Math.ceil(this.n / this.bfr);
     }
     
     public void setBlockIndex(){
@@ -65,6 +65,10 @@ public class table_detail {
 
     public double getFr() {
         return fr;
+    }
+
+    public double getCb() {
+        return cb;
     }
     
     

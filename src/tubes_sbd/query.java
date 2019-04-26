@@ -167,8 +167,15 @@ public class query {
             if (q1.isKey(q1.getSelction_sprt())) {
                 // kalo masuk ngebandingin A1 key / A2
                 //
-                System.out.println("masukk");
-                q1.getT2().showM2();
+                
+                double b  = q1.getT2().getCb();
+                double a1 = q1.A1key(b);
+                double a2 = q1.A2(b);
+                System.out.println("fan out : " + q1.getFanout());
+                System.out.println("b       : "+q1.getT2().getCb());
+                System.out.println("A1 key = "+a1);
+                System.out.println("A2     = "+a2);
+                
             }
             else{
                 //langsung A1 nonkey

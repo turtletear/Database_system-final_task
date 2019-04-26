@@ -25,7 +25,7 @@ public class QEP {
     private table t;
     
     private table_detail t2;
-
+    private double fanout;
     public QEP(String tbl_name, String selection) {
         
         v1 = new values();
@@ -35,6 +35,7 @@ public class QEP {
         x = selection.split("=");
         this.selction_sprt = x[0];
         this.t2 = v1.searchByname(this.tbl_name);
+        this.fanout = this.t2.getFr();
         
     }
 
@@ -97,17 +98,24 @@ public class QEP {
            return false;
     }
     
-    public double A1key(){
-        return 0;
+    public double A1key(double b){
+        return b/2;
     }
     
-    public double A1Nonkey(){
-        return 0;
+    public double A1Nonkey(double b){
+        return b;
     }
     
-    public double A2(){
-        return 0;
+    public double A2(double b){
+        double hi = Math.ceil(LogB(this.fanout,b));
+        return hi+1;
     }
+    
+    public double LogB(double y , double b){ //y is base
+        return Math.log(y) / Math.log(b);
+    }
+    
+    
     
 //    public void A1key(){
 //        System.out.println(" -- A1 key");
@@ -116,6 +124,10 @@ public class QEP {
 //    public void A2(){
 //        System.out.println(" -- A2");
 //    }
+
+    public double getFanout() {
+        return fanout;
+    }
     
     
 }
