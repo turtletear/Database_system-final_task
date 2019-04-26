@@ -162,8 +162,7 @@ public class query {
             q1.setQuery(input);
             q1.mergeProjection();
             System.out.println("---------------------");
-            
-            q1.QEPshow(); //show 2 kali 
+             
             if (q1.isKey(q1.getSelction_sprt())) {
                 // kalo masuk ngebandingin A1 key / A2
                 //
@@ -171,14 +170,29 @@ public class query {
                 double b  = q1.getT2().getCb();
                 double a1 = q1.A1key(b);
                 double a2 = q1.A2(b);
-                System.out.println("fan out : " + q1.getFanout());
-                System.out.println("b       : "+q1.getT2().getCb());
-                System.out.println("A1 key = "+a1);
-                System.out.println("A2     = "+a2);
+                System.out.println("QEP#1");
+                q1.QEPshow(a1,"A1 key");
+                System.out.println("");
+                System.out.println("QEP#2");
+                q1.QEPshow(a2,"A2");
+                
+                
+                if (a1 > a2) {
+                    //save A2
+                    System.out.println("QEP Optimal : #QEP2");
+                    q1.saveQEP(a2, "A2");
+                }
+                else{
+                    System.out.println("QEP Optimal : #QEP1");
+                    q1.saveQEP(a1, "A1 key");
+                } 
                 
             }
             else{
                 //langsung A1 nonkey
+                double b  = q1.getT2().getCb();
+                q1.QEPshow(b,"A1 nonkey");
+                q1.saveQEP(b, "A1 nonkey");
                 //save
             }
             

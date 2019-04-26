@@ -59,28 +59,27 @@ public class QEP {
         }
     }
     
-    public void QEPshow(){ //kasih parameter untuk A1/A2
+    public void QEPshow(double cost, String formula){ //kasih parameter untuk A1/A2
         System.out.print("Projection ");
         System.out.println(this.prj+" -- on the fly");
-        System.out.println("Selection " + selection); //selectFormula(this.selction_sprt);
+        System.out.print("Selection " + selection+ "  --"); System.out.println(formula);
         System.out.println(tbl_name);
         System.out.println("Cost : "+cost);
     }
     
-//    public void saveQEP(){ //kasih parameter untuk A1/A2
-//        try {
-//            FileWriter f = new FileWriter ("shared_pool.txt",true);
-//            f.write(">>Query : "+query+"@"+">> Projection "+prj+" -- on the fly"+"@"+">>Selection "
-//            +selection+ //disini
-//                    +"@"+tbl_name+"#");
-//            f.write(System.getProperty("line.separator"));
-//            
-//            f.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    
-//    }
+    public void saveQEP(double cost, String formula){ //kasih parameter untuk A1/A2
+        try {
+            FileWriter f = new FileWriter ("shared_pool.txt",true);
+            f.write(">>Query : "+query+"@"+">> Projection "+prj+" -- on the fly"+"@"+">>Selection "
+            +selection+ this.selction_sprt + " --"+formula+"@"+tbl_name+"#");
+            f.write(System.getProperty("line.separator"));
+            
+            f.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    
+    }
     
     public void addProjection(String x){
         projection.add(x);
