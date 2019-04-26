@@ -234,8 +234,9 @@ public class query {
                 // sambung sini many table
                 q.qep1();
                 System.out.println("");
-                System.out.println("");
                 q.qep2();
+                System.out.println("");
+                q.saveQEPjoin(this.input);
                 
             }//close if
         

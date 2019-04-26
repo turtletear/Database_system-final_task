@@ -1,2 +1,3 @@
->>Query : select idpel,nama from pelanggan where idpel=1;@>>Projection idpel,nama, -- on the fly@>>Selection idpel=1idpel --A2@>>pelanggan@>>cost : 2.0
->>Query : select idpel,nama from pelanggan where nama=ariq;@>>Projection idpel,nama, -- on the fly@>>Selection nama=ariqnama --A1 nonkey@>>pelanggan@>>cost : 1563.0
+Query : select idpel,nama from pelanggan where idpel=1;@Projection idpel,nama, -- on the fly@Selection idpel=1idpel --A2@pelanggan@cost : 2.0
+Query : select idpel,nama from pelanggan where nama=1;@Projection idpel,nama, -- on the fly@Selection nama=1nama --A1 nonkey@pelanggan@cost : 1563.0
+Query : select t.idtiket,m.idtiket,judul from tiket t join memesan m ON (t.idtiket=m.idtiket);@PROJECTION : t.idtiket,m.idtiket,judul --on the fly@                   JOIN t.idtiket=m.idtiket -- Block Nested Loop Join@memesan                 tiket@Cost (worst case) : 171.0 block

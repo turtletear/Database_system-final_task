@@ -51,6 +51,7 @@ public class Tubes_sbd {
                     System.out.println(sp[i]);
                 }
                 System.out.println("---------");
+                System.out.println("");
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Tubes_sbd.class.getName()).log(Level.SEVERE, null, ex);
