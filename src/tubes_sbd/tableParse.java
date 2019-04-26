@@ -32,14 +32,6 @@ public class tableParse {
         try {
             Scanner data = new Scanner(file);
             tablename = data.next().split(",");
-//            int i =0;
-//            while (data.hasNext()) {
-//                String word = data.next();
-//                //System.out.println(word);
-//                this.values = word.split(",");
-////                System.out.println(values[2]);
-//                i++;
-//            }
 
         } catch (Exception e) {
             e.printStackTrace();

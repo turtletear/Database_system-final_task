@@ -1,3 +1,2 @@
->>Query : select idpel,nama from pelanggan where idpel=1;@>> Projection idpel,nama, -- on the fly@>>Selection idpel=1idpel --A2@pelanggan#
->>Query : select nopesan from memesan where nopesan=1;@>> Projection nopesan, -- on the fly@>>Selection nopesan=1nopesan --A1 key@memesan#
->>Query : select idpel,nama from pelanggan where nama=1;@>> Projection idpel,nama, -- on the fly@>>Selection nama=1nama --A1 nonkey@pelanggan#
+>>Query : select idpel,nama from pelanggan where idpel=1;@>>Projection idpel,nama, -- on the fly@>>Selection idpel=1idpel --A2@>>pelanggan@>>cost : 2.0
+>>Query : select idpel,nama from pelanggan where nama=ariq;@>>Projection idpel,nama, -- on the fly@>>Selection nama=ariqnama --A1 nonkey@>>pelanggan@>>cost : 1563.0

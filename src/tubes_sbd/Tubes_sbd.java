@@ -7,6 +7,9 @@ package tubes_sbd;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -36,6 +39,27 @@ public class Tubes_sbd {
             q1.cekTable();
     }
     
+    public static void menu5(){
+        Scanner s;
+        try {
+            s = new Scanner(new File("shared_pool.txt"));
+            
+            
+            while (s.hasNext()) {
+                String[] sp = s.nextLine().split("@");                      
+                for (int i = 0; i < sp.length; i++) {
+                    System.out.println(sp[i]);
+                }
+                System.out.println("---------");
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Tubes_sbd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+    };
+    
     public static void main(String[] args) {
         // TODO code application logic here
 //select t.idtiket,m.idtiket,judul from tiket t join memesan m ON (t.idtiket=m.idtiket);
@@ -64,8 +88,8 @@ public class Tubes_sbd {
             break;
             case "4": exeQuery();
             break;
-//            case "5": menu5();
-//            break;
+            case "5": menu5();
+            break;
             
             
             

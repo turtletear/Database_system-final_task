@@ -70,8 +70,8 @@ public class QEP {
     public void saveQEP(double cost, String formula){ //kasih parameter untuk A1/A2
         try {
             FileWriter f = new FileWriter ("shared_pool.txt",true);
-            f.write(">>Query : "+query+"@"+">> Projection "+prj+" -- on the fly"+"@"+">>Selection "
-            +selection+ this.selction_sprt + " --"+formula+"@"+tbl_name+"#");
+            f.write(">>Query : "+query+"@"+">>Projection "+prj+" -- on the fly"+"@"+">>Selection "
+            +selection+ this.selction_sprt + " --"+formula+"@"+">>"+tbl_name+"@"+">>cost : "+cost);
             f.write(System.getProperty("line.separator"));
             
             f.close();
