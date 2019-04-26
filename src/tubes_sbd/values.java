@@ -27,7 +27,6 @@ public class values {
         setFR();
         setCB();
         setBlockIndex();
-        //menu3();
     }// end constructor
 
     public void setP() {
@@ -143,8 +142,6 @@ public class values {
     
     }
     
-    
-    
     public void setCB(){
         for (table_detail t : table) {
                 t.setCB();
@@ -207,10 +204,16 @@ public class values {
             System.out.println("table not found");
     }
     
-//    public static void main(String[] args) {
-//        values values1 = new values();
-//        
-//    }
+    public table_detail searchByname(String x){
+        for (table_detail t : table) {
+            if (t.getName().equals(x)) {
+                return t;
+            }
+        }
+        return null; //ini search table by name
+    }
+    
+    
     
     
     

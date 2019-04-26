@@ -161,8 +161,20 @@ public class query {
             q1.setT(t);
             q1.setQuery(input);
             q1.mergeProjection();
-            System.out.println("--------------");
-            q1.QEPshow(); 
+            System.out.println("---------------------");
+            
+            q1.QEPshow(); //show 2 kali 
+            if (q1.isKey(q1.getSelction_sprt())) {
+                // kalo masuk ngebandingin A1 key / A2
+                //
+                System.out.println("masukk");
+                q1.getT2().showM2();
+            }
+            else{
+                //langsung A1 nonkey
+                //save
+            }
+            
             //q1.saveQEP();//cek optimal dulu sebelum save
         }
         
@@ -189,7 +201,7 @@ public class query {
                 String[] parse = parseToken1(tokens[1]);
                 for (table z : t) {
                     System.out.println("Table       : " + z.getName());
-                    q.addTbl_name(z.getName());
+                    q.addTbl_name(z.getName()); //nambah nama2 tabel
                     System.out.println("Column List : ");
                         for (int i = 0; i < parse.length; i++) {
                             String g = String.valueOf(parse[i].charAt(1));
@@ -206,7 +218,7 @@ public class query {
                         
                 }
                 q.setProjection(tokens[1]);
-                // sambung sini
+                // sambung sini many table
                 
             }//close if
         

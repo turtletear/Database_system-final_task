@@ -23,6 +23,8 @@ public class QEP {
     private double cost;
     private values v1; //table2 yang ada bfr dkk
     private table t;
+    
+    private table_detail t2;
 
     public QEP(String tbl_name, String selection) {
         
@@ -32,8 +34,20 @@ public class QEP {
         String[] x = new String[2];
         x = selection.split("=");
         this.selction_sprt = x[0];
+        this.t2 = v1.searchByname(this.tbl_name);
+        
     }
 
+    public table_detail getT2() {
+        return t2;
+    }
+    
+    
+
+    public String getSelction_sprt() {
+        return selction_sprt;
+    }
+    
     public void setT(table t) {
         this.t = t;
     }
@@ -47,24 +61,25 @@ public class QEP {
     public void QEPshow(){ //kasih parameter untuk A1/A2
         System.out.print("Projection ");
         System.out.println(this.prj+" -- on the fly");
-        System.out.print("Selection " + selection); selectFormula(this.selction_sprt);
+        System.out.println("Selection " + selection); //selectFormula(this.selction_sprt);
         System.out.println(tbl_name);
         System.out.println("Cost : "+cost);
     }
     
-    public void saveQEP(){ //kasih parameter untuk A1/A2
-        try {
-            FileWriter f = new FileWriter ("shared_pool.txt",true);
-            f.write(">>Query : "+query+"@"+">> Projection "+prj+" -- on the fly"+"@"+">>Selection "
-            +selection+selectFormulaSave(this.selction_sprt)+"@"+tbl_name+"#");
-            f.write(System.getProperty("line.separator"));
-            
-            f.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    
-    }
+//    public void saveQEP(){ //kasih parameter untuk A1/A2
+//        try {
+//            FileWriter f = new FileWriter ("shared_pool.txt",true);
+//            f.write(">>Query : "+query+"@"+">> Projection "+prj+" -- on the fly"+"@"+">>Selection "
+//            +selection+ //disini
+//                    +"@"+tbl_name+"#");
+//            f.write(System.getProperty("line.separator"));
+//            
+//            f.close();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    
+//    }
     
     public void addProjection(String x){
         projection.add(x);
@@ -74,30 +89,33 @@ public class QEP {
         this.query = query;
     }
     
-    
-    public void selectFormula(String x){
+    public boolean isKey (String x){
         if (t.cekPK(x)) {
-            A1key();
+            return true;
         }
         else
-            A2();
+           return false;
     }
     
-    public String selectFormulaSave(String x){
-        if (t.cekPK(x)) {
-            return (" -- A1 key");
-        }
-        else
-           return (" -- A3");
+    public double A1key(){
+        return 0;
     }
     
-    public void A1key(){
-        System.out.println(" -- A1 key");
+    public double A1Nonkey(){
+        return 0;
     }
     
-    public void A2(){
-        System.out.println(" -- A2");
+    public double A2(){
+        return 0;
     }
+    
+//    public void A1key(){
+//        System.out.println(" -- A1 key");
+//    }
+//    
+//    public void A2(){
+//        System.out.println(" -- A2");
+//    }
     
     
 }
