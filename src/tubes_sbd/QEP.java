@@ -42,8 +42,6 @@ public class QEP {
     public table_detail getT2() {
         return t2;
     }
-    
-    
 
     public String getSelction_sprt() {
         return selction_sprt;
@@ -113,16 +111,7 @@ public class QEP {
     public double LogB(double y , double b){ //y is base
         return Math.log(y) / Math.log(b);
     }
-    
-    
-    
-//    public void A1key(){
-//        System.out.println(" -- A1 key");
-//    }
-//    
-//    public void A2(){
-//        System.out.println(" -- A2");
-//    }
+   
 
     public double getFanout() {
         return fanout;

@@ -101,6 +101,7 @@ public class query {
             ArrayList<table> x = t1.getManyTable();
 
             manyTable(x,t1.getTemp());
+            //disini
         }
     }
     
@@ -162,11 +163,7 @@ public class query {
             q1.setQuery(input);
             q1.mergeProjection();
             System.out.println("---------------------");
-             
             if (q1.isKey(q1.getSelction_sprt())) {
-                // kalo masuk ngebandingin A1 key / A2
-                //
-                
                 double b  = q1.getT2().getCb();
                 double a1 = q1.A1key(b);
                 double a2 = q1.A2(b);
@@ -175,10 +172,7 @@ public class query {
                 System.out.println("");
                 System.out.println("QEP#2");
                 q1.QEPshow(a2,"A2");
-                
-                
                 if (a1 > a2) {
-                    //save A2
                     System.out.println("QEP Optimal : #QEP2");
                     q1.saveQEP(a2, "A2");
                 }
@@ -186,7 +180,6 @@ public class query {
                     System.out.println("QEP Optimal : #QEP1");
                     q1.saveQEP(a1, "A1 key");
                 } 
-                
             }
             else{
                 //langsung A1 nonkey
@@ -195,10 +188,7 @@ public class query {
                 q1.saveQEP(b, "A1 nonkey");
                 //save
             }
-            
-            //q1.saveQEP();//cek optimal dulu sebelum save
         }
-        
         else
             System.out.println("column not found !");
         
@@ -207,7 +197,6 @@ public class query {
     
     public void manyTable(ArrayList<table> t , String x){
         String[] tm = x.split("=");
-        
         int count_true = 0;
         if (kurang2(tm[0]).equals(kurang2(tm[1]))) { //ngecek (b.blabla = b.blabla) sama
             for (table z : t) {
@@ -223,6 +212,7 @@ public class query {
                 for (table z : t) {
                     System.out.println("Table       : " + z.getName());
                     q.addTbl_name(z.getName()); //nambah nama2 tabel
+                    q.addTbl(z);
                     System.out.println("Column List : ");
                         for (int i = 0; i < parse.length; i++) {
                             String g = String.valueOf(parse[i].charAt(1));
@@ -238,8 +228,14 @@ public class query {
                     }//buat array untuk table name
                         
                 }
+                System.out.println("----------------");
                 q.setProjection(tokens[1]);
+                q.setJoin(x);
                 // sambung sini many table
+                q.qep1();
+                System.out.println("");
+                System.out.println("");
+                q.qep2();
                 
             }//close if
         
